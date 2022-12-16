@@ -4,6 +4,23 @@ h1 {
 }
 
 body {
-    background-color: navy;
+    background-color: beige;
     align-items: center;
 }
+
+.splash {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    z-index: 200;
+    color: white;
+    text-align: center;
+    line-height: 90vh;
+}
+
+@keyframes fadeIn(
+    
+)
