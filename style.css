@@ -130,3 +130,17 @@ nav a:hover::before {
     opacity: 0;
     transition: ease-in-out 0.5s;
 }
+
+
+/* Computer Screen Animation */
+
+.computer {
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 10px;
+    border-color: black;
+    margin: auto auto;
+    background-color: white;
+    width: 70%;
+    height: 600px;
+}
