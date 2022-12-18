@@ -4,43 +4,62 @@ const c = canvas.getContext('2d')
 canvas.width = 64 * 16 // 1024
 canvas.height = 64 * 9 // 576
 
-class Player {
-    constructor() {
-        this.position = {
-            x: 100,
-            y: 100
-        } // end of this.position
+const collisionBlocks = []
 
-        this.width = 100
-        this.height = 100
-        this.sides = {
-            bottom: this.position.y + this.height
+const parsedCollisions = collisionLevel.parse2D()
 
-        } // end of this.sides
-    } // end of Player Constructor
+parsedCollisions.forEach((row, y) => {
+    row.forEach((symbol, x) => {
+        if (symbol === 306) {
+            //push new collision into collisionBlockArray
+            collisionBlocks.push(new CollisionBlock({
+                position: {
+                    x: x * 32,
+                    y: y * 32,
+            }, // end of position
+        }) // end of new collision block
+        ) //end of push to collision block array
+        } // end of if collision
+    }) //end of column iter
+}) // end of row iter
 
-    draw() {
-        c.fillStyle = 'red'
-        c.fillRect(this.position.x, this.position.y, this.width, this.height)
-    } // end of Draw
 
-    update() {
-        if (this.sides.bottom < canvas.height) {
-            this.position.y++
-            this.sides.bottom = this.position.y + this.height
-        } // end of if
-    } // end of Update()
-} // end of Player Class
+const backgroundLevel = new Sprite({
+    position: {
+        x: 0,
+        y: 0,
+    },
+    imageSrc: 'img/Website-Map.png'
+})
 
 
 const player = new Player()
 
-//let bottom = y + height
-
+const keys = {
+    space: {
+        pressed: false
+    },
+    a: {
+        pressed: false
+    },
+    d: {
+        pressed: false
+    }
+}
 function animate() {
     window.requestAnimationFrame(animate)
-    c.fillStyle = 'white'
-    c.fillRect(0, 0, canvas.width, canvas.height)
+
+    backgroundLevel.draw()
+    collisionBlocks.forEach(CollisionBlock => {
+        CollisionBlock.draw()
+    })
+
+    player.velocity.x = 0
+    if (keys.d.pressed) {
+        player.velocity.x = 5
+    } else if (keys.a.pressed) {
+        player.velocity.x = -5
+    }
 
     player.draw()
     player.update()
