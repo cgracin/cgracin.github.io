@@ -33,7 +33,9 @@ const backgroundLevel = new Sprite({
 })
 
 
-const player = new Player()
+const player = new Player({
+    collisionBlocks,
+})
 
 const keys = {
     space: {

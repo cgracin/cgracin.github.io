@@ -5,7 +5,7 @@ window.addEventListener('keydown', (event) => {
         // jump
         case ' ':
             if (player.velocity.y == 0) {
-                player.velocity.y = -20
+                player.velocity.y = -12
             }
             break
 
