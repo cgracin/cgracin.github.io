@@ -35,6 +35,8 @@ const backgroundLevel = new Sprite({
 
 const player = new Player({
     collisionBlocks,
+    imageSrc: 'img/king/Idle.png',
+    frameRate: 11,
 })
 
 const keys = {
