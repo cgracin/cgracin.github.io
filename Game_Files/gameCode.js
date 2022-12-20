@@ -35,9 +35,74 @@ const backgroundLevel = new Sprite({
 
 const player = new Player({
     collisionBlocks,
-    imageSrc: 'img/king/Idle.png',
+    imageSrc: 'img/king/idleRight.png',
     frameRate: 11,
+    animations: {
+        idleRight: {
+            frameRate: 11,
+            frameBuffer: 2,
+            loop: true,
+            imageSrc: 'img/king/idleRight.png',
+            // image: idleRightImg,
+        },
+        idleLeft: {
+            frameRate: 11,
+            frameBuffer: 2,
+            loop: true,
+            imageSrc: 'img/king/idleLeft.png',
+            // image: idleLeftImg,
+            
+        },
+        runRight: {
+            frameRate: 8,
+            frameBuffer: 4,
+            loop: true,
+            imageSrc: 'img/king/runRight.png',
+            // image: runRightImg,
+        },
+        runLeft: {
+            frameRate: 8,
+            frameBuffer: 4,
+            loop: true,
+            imageSrc: 'img/king/runLeft.png',
+            // image: runLeftImg,
+        }
+    }
+
 })
+
+const doors = [
+    new Sprite({
+        position: {
+            x: 440,
+            y: 457
+        },
+        imageSrc: 'img/doorOpen.png',
+        frameRate: 5,
+        frameBuffer: 5,
+        loop: false,
+    }),
+    new Sprite({
+        position: {
+            x: 184,
+            y: 104
+        },
+        imageSrc: 'img/doorOpen.png',
+        frameRate: 5,
+        frameBuffer: 5,
+        loop: false,
+    }),
+    new Sprite({
+        position: {
+            x: 778,
+            y: 233
+        },
+        imageSrc: 'img/doorOpen.png',
+        frameRate: 5,
+        frameBuffer: 5,
+        loop: false,
+    }),
+]
 
 const keys = {
     space: {
@@ -58,11 +123,25 @@ function animate() {
         CollisionBlock.draw()
     })
 
+    doors.forEach(door => {
+        door.draw()
+    })
+
     player.velocity.x = 0
     if (keys.d.pressed) {
+        player.lastDirection = 'right'
+        player.switchSprite('runRight')
         player.velocity.x = 5
     } else if (keys.a.pressed) {
+        player.lastDirection = 'left'
+        player.switchSprite('runLeft')
         player.velocity.x = -5
+    } else {
+        if (player.lastDirection === 'left') {
+            player.switchSprite('idleLeft')
+        } else {
+            player.switchSprite('idleRight')
+        }
     }
 
     player.draw()
