@@ -31,7 +31,18 @@ class Player {
 
     update() {
         this.position.x += this.velocity.x
-        // check horizontal collisions
+        //check for horizontal collisions
+        this.checkForHorizontalCollisions()
+
+        //apply gravity
+        this.applyGravity()
+
+        // check vertical collisions
+        this.checkVerticalCollisions()
+        
+    } // end of Update()
+
+    checkForHorizontalCollisions() {
         for (let i = 0; i < this.collisionBlocks.length; i++) {
             const collisionBlock = this.collisionBlocks[i]
 
@@ -52,12 +63,14 @@ class Player {
                     }
             }  // end of collision check
         } // end of loop for collision
+    } // end of check horizontal
 
-        //apply gravity
+    applyGravity() {
         this.velocity.y += this.gravity
         this.position.y += this.velocity.y
+    } // end of applyGravity
 
-        // check vertical collisions
+    checkVerticalCollisions() {
         for (let i = 0; i < this.collisionBlocks.length; i++) {
             const collisionBlock = this.collisionBlocks[i]
 
@@ -80,5 +93,6 @@ class Player {
                     }
             }  // end of collision check
         } // end of loop for collision
-    } // end of Update()
+    } // check vertical collisions
+
 } // end of Player Class
