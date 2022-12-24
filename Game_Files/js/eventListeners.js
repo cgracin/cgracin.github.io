@@ -1,3 +1,12 @@
+
+window.addEventListener('resize', () => {
+    c.width = window.innerWidth
+    c.height = window.innerHeight
+})
+
+
+
+
 // Player Movement
 window.addEventListener('keydown', (event) => {
     if (player.preventInput) return

@@ -73,7 +73,6 @@ const player = new Player({
             loop: false,
             imageSrc: 'img/king/enterDoor.png',
             onComplete: () => {
-                console.log('completed animation')
                 gsap.to(overlay, {
                     opacity: 1
                 })
