@@ -1,4 +1,9 @@
 
+
+testing_url = 'http://127.0.0.1:5500'
+
+live_url = 'https://cartergracin.com'
+
 window.addEventListener('resize', () => {
     c.width = window.innerWidth
     c.height = window.innerHeight
@@ -25,6 +30,15 @@ window.addEventListener('keydown', (event) => {
                         player.preventInput = true
                         door.play()
                         player.switchSprite('enterDoor')
+
+                        // Page redirecting
+                        if (player.hitbox.position.x > 423 && player.hitbox.position.x < 482) {
+                            window.location = testing_url + '/projects.html'
+                        } else if (player.hitbox.position.x > 763 && player.hitbox.position.x < 816) {
+                            window.location = testing_url + '/experience.html'
+                        } else {
+                            window.location = testing_url + '/education.html'
+                        }
                         return
                     }
             }

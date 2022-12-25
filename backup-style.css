@@ -103,29 +103,44 @@ nav a:hover::before {
     transition: 1s;
 }
 
-.logo-header {
+.splash-header {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ffffff;
+    color: white;
 }
 
-.logo {
+.splash{
     position: relative;
     display: inline-block;
     bottom: -20px;
     opacity: 0;
+    background-color: #161616;
 }
 
-.logo.active{
+.splash.active {
     bottom: 0;
     opacity: 1;
     transition: ease-in-out 0.5s;
 }
 
-.logo.fade{
+.splash.fade {
     bottom: 150px;
     opacity: 0;
     transition: ease-in-out 0.5s;
+}
+
+
+/* Computer Screen Animation */
+
+.computer {
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 10px;
+    border-color: black;
+    margin: auto auto;
+    background-color: white;
+    width: 70%;
+    height: 600px;
 }
