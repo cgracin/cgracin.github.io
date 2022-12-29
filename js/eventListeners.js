@@ -31,7 +31,8 @@ window.addEventListener('keydown', (event) => {
                         door.play()
                         player.switchSprite('enterDoor')
 
-                        // Page redirecting
+                        
+                        setTimeout(() => {// Page redirecting
                         if (player.hitbox.position.x > 423 && player.hitbox.position.x < 482) {
                             window.location = testing_url + '/projects.html'
                         } else if (player.hitbox.position.x > 763 && player.hitbox.position.x < 816) {
@@ -39,6 +40,7 @@ window.addEventListener('keydown', (event) => {
                         } else {
                             window.location = testing_url + '/education.html'
                         }
+                        }, 1500)
                         return
                     }
             }
