@@ -5,6 +5,10 @@
     font-family: 'Orbitron', sans-serif;
 }
 
+.intro-page {
+    background-color: #3f3851;
+}
+
 
 .container {
     width: 95%;
@@ -17,7 +21,7 @@ header {
     top: 0;
     width: 100%;
     height: 80px;
-    color: rgb(59, 58, 58);
+    color: #3f3851;
 }
 
 header::after {
@@ -28,7 +32,7 @@ header::after {
 
 body {
     height: 100%;
-    background-image: linear-gradient(to bottom right, rgb(116, 108, 108), rgb(68, 70, 71));
+    background-color: #3f3851;
     background-attachment: fixed;
     background-repeat: no-repeat;
     margin: 0;
@@ -51,10 +55,10 @@ canvas {
     /* width: 90%;
     height: auto;
     transform: translate(5%, 5%); */
-    border-style: solid;
+    /* border-style: solid;
     border-radius: 20px;
     border-width: 10px;
-    border-color: rgb(156, 151, 151);
+    border-color: #7D6F51; */
     /* margin: auto auto; */
 }
 
@@ -62,14 +66,16 @@ canvas {
 /* nav Bar */
 
 header h4 {
+    color: #fbca97;
     float: left;
-    font-size: 1.6rem;
+    font-size: 2rem;
     padding-top: 20px;
-    padding-left: 10px;
+    padding-left: 30px;
 }
 
-/* nav {
+nav {
     float: right;
+    padding-right: 30px;
 }
 
 nav ul {
@@ -80,14 +86,16 @@ nav ul {
 
 nav li {
     display: inline-block;
-    margin-left: 70px;
+    margin-left: 50px;
     padding-top: 25px;
+    padding-right: 30px;
 
     position: relative;
 }
 
 nav a {
-    color: white;
+    font-size: 1.2rem;
+    color: #fbca97;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -101,7 +109,7 @@ nav a::before {
     display: block;
     height: 3px;
     width: 100%;
-    background-color: white;
+    background-color: #fbca97;
 
     position: absolute;
     top: 0;
@@ -111,8 +119,8 @@ nav a::before {
 }
 
 nav a:hover::before {
-    width: 100%;
-} */
+    width: 80%;
+}
 
 
 /* Splash Screen */

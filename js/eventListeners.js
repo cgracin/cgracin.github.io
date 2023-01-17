@@ -40,7 +40,7 @@ window.addEventListener('keydown', (event) => {
                         } else {
                             window.location = testing_url + '/education.html'
                         }
-                        }, 1500)
+                        }, 1000)
                         return
                     }
             }
